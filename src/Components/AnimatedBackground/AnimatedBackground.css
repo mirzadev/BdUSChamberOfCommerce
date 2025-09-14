@@ -1,0 +1,77 @@
+.animated-background {
+  position: absolute; /* lives behind your page content */
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Base particle */
+.shape {
+  position: absolute;
+  opacity: var(--o, 0.2);
+  animation: float 8s infinite ease-in-out alternate;
+  z-index: 0;
+}
+
+/* Shapes */
+.circle {
+  width: 20px;
+  height: 20px;
+  background-color: #ff6b6b;
+  border-radius: 50%;
+}
+.square {
+  width: 20px;
+  height: 20px;
+  background-color: #6bcfff;
+}
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #ffd66b;
+}
+.oval {
+  width: 30px;
+  height: 15px;
+  background-color: #a66bff;
+  border-radius: 50%;
+}
+.star {
+  width: 20px;
+  height: 20px;
+  background-color: #4cd137;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+/* Use CSS vars for per-particle scale/opacity so it plays nice with animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(var(--s, 1));
+    opacity: calc(var(--o, 0.2) * 0.7);
+  }
+  100% {
+    transform: translateY(-40px) scale(calc(var(--s, 1) * 1.1));
+    opacity: var(--o, 0.2);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .shape {
+    animation: none;
+  }
+}

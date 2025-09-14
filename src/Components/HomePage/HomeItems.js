@@ -26,9 +26,7 @@ import promotionVisibility from "../../Assets/Home/PromotionVisibility.png";
 import eventParticipation from "../../Assets/Home/EventParticipation.png";
 import partnershipEntiry from "../../Assets/Home/PartnershipWithEntities.png";
 import tradeExchange from "../../Assets/Home/tradeExchange.png";
-// import AnimatedBackground from "../AnimatedBackground/AnimatedBackground";
-// import CloudWavesBackground from "../SkywaveAnimation/CloudWavesBackground";
-// import LightParticles from "../LightParticles/LightParticles";
+import AnimatedBackground from "../AnimatedBackground/AnimatedBackground";
 
 function HomeItems() {
   const homeImages = [
@@ -54,17 +52,7 @@ function HomeItems() {
 
   return (
     <div className="homepage">
-      {/* <AnimatedBackground /> */}
-      {/* <CloudWavesBackground /> */}
-      {/* <LightParticles
-        topBands={["header", ".top-vision", ".carousel-container"]} 
-        bottomBands={["footer", ".site-footer", ".app-footer"]}  
-        excludeSelectors={[".carousel-container"]}  
-        colors={["#9bbde6", "#b5cae8", "#d0def2"]}
-        density={0.000045}
-        linkDistance={0}
-        glow={4}
-      /> */}
+      <AnimatedBackground />
       <div className="top-vision">
         <div className="BACC_logo">
           <img id="BACC-logo" src={BACC_Logo} alt="BACC logo" />
