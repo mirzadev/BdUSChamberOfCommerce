@@ -1,0 +1,160 @@
+/* Default (Desktop/Regular Computer) */
+.memPart-carousel-container {
+  padding: 0.1rem 4rem;
+  position: relative;
+  width: 92%;
+}
+
+#memPart-com-title {
+  font-size: 2.2rem;
+  color: #00796b;
+  margin-bottom: 1rem;
+}
+.memPat-title {
+  margin-bottom: 3rem;
+}
+.statistic-header h2 {
+  font-size: 2.2rem;
+  color: #00796b;
+  margin-bottom: 16px;
+}
+.memPart-carousel-item {
+  text-align: center;
+  position: relative;
+  padding-right: -2rem;
+}
+
+.memPart-carousel-item img {
+  height: auto;
+}
+
+.memPart-appt-title {
+  margin-top: 10px;
+  color: #333;
+  font-family: sans-serif;
+  font-size: 1.3rem;
+}
+.memPat-title p {
+  font-size: 1.1rem;
+}
+
+/* Slick navigation arrows */
+.slick-arrow {
+  font-size: 2rem;
+  line-height: 1;
+  color: white !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.slick-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+/* Hide default slick arrow content */
+.slick-prev:before,
+.slick-next:before {
+  display: none;
+}
+/* Laptop View (Max-width: 1024px) */
+@media (max-width: 1024px) {
+  .memPart-carousel-container {
+    padding: 0.1rem 2rem;
+    width: 100%;
+  }
+
+  #memPart-com-title {
+    font-size: 1.8rem; /* Smaller font size on laptops */
+  }
+
+  .memPart-appt-title {
+    font-size: 1.5rem; /* Adjust image title font size */
+  }
+
+  .slick-arrow {
+    font-size: 25px; /* Reduce arrow size */
+  }
+
+  .slick-prev {
+    left: 10px;
+  }
+
+  .slick-next {
+    right: 1.5rem;
+  }
+}
+
+/* iPhone View (Max-width: 850px) */
+@media (max-width: 850px) {
+  .memPart-carousel-container {
+    padding: 0.1rem 2rem;
+    width: 100%;
+  }
+
+  #memPart-com-title {
+    font-size: 1.5rem; /* Smaller font size on mobile */
+  }
+
+  .memPart-appt-title {
+    font-size: 1.5rem; /* Smaller font size for image titles */
+  }
+
+  .slick-arrow {
+    font-size: 20px; /* Smaller arrows on mobile */
+  }
+
+  .slick-prev {
+    left: 5px;
+  }
+
+  .slick-next {
+    right: 3rem;
+  }
+}
+
+/* iPhone SE or Very Small Devices (Max-width: 480px) */
+@media (max-width: 480px) {
+  .memPart-carousel-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #memPart-com-title {
+    font-size: 1.2rem; /* Even smaller title for very small devices */
+  }
+
+  .memPart-appt-title {
+    font-size: 1rem; /* Smaller image titles for very small screens */
+  }
+
+  .slick-arrow {
+    font-size: 18px; /* Even smaller arrows */
+  }
+
+  .slick-prev {
+    left: 5px;
+  }
+
+  .slick-next {
+    right: 0.5rem;
+  }
+}

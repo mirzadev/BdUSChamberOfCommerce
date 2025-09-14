@@ -1,0 +1,178 @@
+body {
+  background: hsl(60, 38%, 95%);
+}
+
+.NavbarItems {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  width: 98%;
+  height: 75px;
+  background: rgb(5, 128, 252, 0.9);
+  border-radius: 13px;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 9999;
+}
+
+/* #app-title {
+  color: navy;
+  font-size: 2rem;
+  font-weight: 800;
+  cursor: pointer;
+} */
+.header-link {
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  grid-gap: 1px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: rgb(246, 246, 248);
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1.2rem 0.5rem;
+  white-space: nowrap;
+}
+
+.nav-links i {
+  padding-right: 10px;
+}
+
+.nav-links:hover {
+  background-color: rgb(10, 105, 200);
+  color: rgb(228, 147, 42);
+  border-radius: 4px;
+  transition: all 0, 2s ease-in-out;
+}
+.nav-link-mobile {
+  display: none;
+}
+
+.membership {
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  white-space: nowrap;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-color: navy;
+  cursor: pointer;
+  background: transparent;
+  color: navy;
+  transition: 0.2s ease-in-out;
+}
+
+.membership:hover {
+  background-color: rgb(10, 105, 200);
+  color: rgb(228, 147, 42);
+  border-color: beige;
+}
+
+.menu-icons {
+  display: none;
+}
+#BACC-logo {
+  padding-top: 0.4rem;
+  height: 4rem;
+  width: 5rem;
+}
+
+@media screen and (max-width: 850px) {
+  #app-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-right: 0.6rem;
+  }
+
+  .NavbarItems {
+    z-index: 99;
+    padding: 0 15px;
+    top: 4px;
+    width: 99%;
+    height: 40px;
+  }
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: rgb(246, 243, 235);
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    opacity: 1;
+    align-items: stretch;
+    padding: 80px 0 30px 0;
+    margin: 0;
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+  }
+  .nav-menu.active {
+    left: 0;
+    opacity: 1;
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+  }
+  .nav-links {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 1.4rem 0;
+    color: navy;
+  }
+  .nav-links:hover {
+    background: rgb(89, 149, 233);
+    transition: none;
+  }
+  .membership {
+    display: none;
+  }
+  .nav-link-mobile {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 1rem;
+    margin: auto;
+    color: whitesmoke;
+    border-radius: 8px;
+    width: 40%;
+    background: rgb(89, 149, 233);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .nav-link-mobile:hover {
+    background: rgb(89, 149, 233);
+    width: 100%;
+    transition: none;
+    color: goldenrod;
+  }
+  .menu-icons {
+    display: block;
+    cursor: pointer;
+  }
+  .menu-icons i {
+    font-size: 1.2rem;
+    color: whitesmoke;
+  }
+
+  #BACC-logo {
+    padding-top: 0.5rem;
+    height: 2rem;
+    width: 2rem;
+  }
+}

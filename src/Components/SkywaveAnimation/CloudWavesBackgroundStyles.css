@@ -1,0 +1,103 @@
+/* CloudWaves.css — more visible, still clean */
+
+.cloud-waves {
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* clouds behind your page (.homepage should be z-index:1) */
+  pointer-events: none;
+  background: transparent; /* keep white page intact */
+  overflow: hidden;
+
+  /* Visibility + speed knobs */
+  --cw-opacity: 0.42; /* ↑ stronger look (try 0.48 if you want more) */
+  --cw-speed-1: 80s;
+  --cw-speed-2: 110s;
+  --cw-speed-3: 140s;
+}
+
+/* Generic wave layer */
+.cloud-waves .wave {
+  position: absolute;
+  left: -25%;
+  width: 200%;
+  height: 44%; /* taller = more visible */
+  background-repeat: repeat-x;
+  background-size: 900px 100%; /* denser pattern so motion is readable */
+  opacity: var(--cw-opacity);
+
+  /* Crisper edges so they pop on white */
+  filter: blur(0.6px);
+
+  /* Softer fade top/bottom but keep most of the body opaque */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000f 14%,
+    #000f 86%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000f 14%,
+    #000f 86%,
+    transparent 100%
+  );
+
+  animation: cw-slide-ltr linear infinite;
+}
+
+/* Layers (slightly stronger blues so they’re visible on white) */
+.wave-1 {
+  top: 4%;
+  animation-duration: var(--cw-speed-1);
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'>\
+<path d='M0,110 C140,60 320,160 600,110 C880,60 1060,160 1200,110 L1200,200 L0,200 Z' fill='%23cfe2ff'/>\
+</svg>");
+}
+.wave-2 {
+  top: 34%;
+  animation-duration: var(--cw-speed-2);
+  opacity: calc(var(--cw-opacity) * 0.95);
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'>\
+<path d='M0,100 C180,70 360,140 600,100 C840,60 1020,140 1200,100 L1200,200 L0,200 Z' fill='%23dbeaff'/>\
+</svg>");
+}
+.wave-3 {
+  top: 64%;
+  animation-duration: var(--cw-speed-3);
+  opacity: calc(var(--cw-opacity) * 0.9);
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'>\
+<path d='M0,105 C120,80 330,150 600,105 C870,60 1080,140 1200,105 L1200,200 L0,200 Z' fill='%23e7f1ff'/>\
+</svg>");
+}
+
+/* Left → right motion (positive X) */
+@keyframes cw-slide-ltr {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 900px 0;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cloud-waves .wave {
+    animation: none;
+  }
+}
+
+/* Mobile: still visible but a touch lighter */
+@media (max-width: 600px) {
+  .cloud-waves {
+    --cw-opacity: 0.36;
+  }
+  .cloud-waves .wave {
+    filter: blur(0.5px);
+  }
+}

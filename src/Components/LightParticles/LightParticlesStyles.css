@@ -1,0 +1,58 @@
+.light-particles {
+  position: fixed;
+  left: 0;
+  right: 0;
+  /* canvas only occupies the content “window”
+     – never under header (top inset) or footer (bottom inset) */
+  top: var(--particles-top-inset, 0px);
+  bottom: var(--particles-bottom-inset, 0px);
+
+  z-index: -1; /* always behind your app */
+  pointer-events: none;
+  background: transparent;
+}
+
+.light-particles__canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* Exclusion bands (cover canvas under header/footer) */
+.particles-exclude {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #fff; /* same as your page background */
+  z-index: 1; /* above canvas but still behind content */
+}
+.particles-exclude--top {
+  top: 0;
+  height: var(--particles-top-cut, 84px);
+}
+.particles-exclude--bottom {
+  bottom: 0;
+  height: var(--particles-bottom-cut, 220px);
+}
+
+/* Ensure your page sits above the particles container */
+.homepage {
+  position: relative;
+  z-index: 2;
+}
+
+/* Motion preference respected in JS; keep as-is */
+@media (prefers-reduced-motion: reduce) {
+  .light-particles__canvas {
+    opacity: 1;
+  }
+}
+
+/* Tiny phones: slightly reduce band sizes if needed */
+@media (max-width: 480px) {
+  .particles-exclude--top {
+    height: calc(var(--particles-top-cut, 84px) * 0.85);
+  }
+  .particles-exclude--bottom {
+    height: calc(var(--particles-bottom-cut, 220px) * 0.9);
+  }
+}

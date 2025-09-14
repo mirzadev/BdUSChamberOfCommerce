@@ -1,0 +1,48 @@
+.biz-particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* behind your content */
+  pointer-events: none;
+  background: transparent; /* keep your white page background */
+  overflow: hidden;
+}
+
+/* Each particle */
+.biz-particle {
+  position: absolute;
+  bottom: -12vh; /* start slightly below viewport */
+  transform: translateY(0) rotate(var(--rot, 0deg));
+  animation-name: biz-float;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.06));
+}
+
+/* Gentle upward drift + slight rotate */
+@keyframes biz-float {
+  0% {
+    transform: translateY(0) rotate(var(--rot, 0deg));
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-115vh) rotate(calc(var(--rot, 0deg) + 12deg));
+    opacity: 0;
+  }
+}
+
+/* Motion sensitivity */
+@media (prefers-reduced-motion: reduce) {
+  .biz-particles {
+    display: none;
+  }
+}
+
+/* Slightly fewer/lighter on very small devices (optional) */
+@media (max-width: 480px) {
+  .biz-particles {
+    opacity: 0.9;
+  }
+}

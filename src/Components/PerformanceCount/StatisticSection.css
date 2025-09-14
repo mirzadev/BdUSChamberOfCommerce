@@ -1,0 +1,104 @@
+/* ===== Statistic Section (one-line row) ===== */
+.stats-wrapper {
+  background-image: url("../../Assets/Home/performance-statistic-background.png");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 2rem;
+  padding: 0; /* background spans edge-to-edge; content spacing handled below */
+}
+
+.stats {
+  /* layout */
+  --stat-gap: 24px;
+  display: flex;
+  flex-wrap: nowrap; /* <-- keep everything on ONE line */
+  justify-content: space-between;
+  align-items: stretch;
+  gap: var(--stat-gap);
+
+  /* container */
+  max-width: 1200px; /* breathing space left/right via centering + padding */
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 56px) /* top/bottom */ clamp(16px, 4vw, 48px); /* left/right */
+
+  /* small screens: horizontal scroll instead of wrapping */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory; /* nice snap scrolling on phones */
+}
+
+/* Each card: 4-up layout on wide screens; scroll on small */
+.stat {
+  flex: 0 0 calc((100% - 3 * var(--stat-gap)) / 4); /* exactly 4 across */
+  min-width: 220px; /* ensures readability on narrow screens (triggers scroll) */
+  max-width: 320px;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  scroll-snap-align: start;
+}
+
+/* Number + label (responsive typography) */
+.stat h3 {
+  margin: 0 0 8px;
+  line-height: 1.1;
+  color: whitesmoke;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  transition: transform 0.3s ease-in-out;
+}
+
+.stat p {
+  margin: 0;
+  font-weight: 700;
+  color: whitesmoke;
+  line-height: 1.35;
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+}
+
+@media (max-width: 768px) {
+  .stats-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0; /* background spans edge-to-edge */
+    overflow-x: hidden; /* prevent right spill */
+  }
+
+  .stats {
+    display: flex;
+    flex-direction: column; /* one per row */
+    align-items: stretch; /* cards fill container width */
+    gap: 12px;
+
+    width: min(680px, 100%); /* constrain & center */
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 16px; /* insets so cards sit inside bg */
+    box-sizing: border-box;
+
+    overflow: visible; /* no horizontal scroll on mobile */
+  }
+
+  .stat {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0; /* critical: removes forced 2-up width */
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .stat h3 {
+    margin: 0 0 6px;
+    line-height: 1.1;
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+  .stat p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: clamp(0.95rem, 3.8vw, 1.05rem);
+  }
+}
