@@ -174,9 +174,8 @@
 }
 
 .copyright-note img {
-  margin: 0 0.5rem; /* Add some space between the image and text */
-  height: 35px; /* Set a fixed height for the image */
-  width: 35px; /* Set a fixed width for the image */
+  width: 35px;
+  height: 35px;
 }
 
 .copyright-note a {
@@ -195,11 +194,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.1rem 15rem;
+  padding: 0.75rem 1rem;
+  flex-wrap: wrap;
+  gap: 8px 16px;
 }
 .footer_logo {
-  margin-left: -5rem;
-  width: 15rem;
+  margin: 0; /* remove negative left margin */
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-copyright img {
+  width: 3rem;
+  height: 3rem;
 }
 .footer-copyright img:hover {
   transform: scale(1.2);
@@ -207,7 +215,13 @@
 .footer-copyright p {
   color: #fafafa;
 }
-
+.footer_logo .footer-brand {
+  width: auto;
+  height: 64px; /* base height */
+  max-width: 180px; /* keeps it from getting too wide */
+  object-fit: contain;
+  display: block;
+}
 /* Media Query for Screens with max-width: 1024px (Laptops) */
 @media screen and (max-width: 1024px) {
   .footer {
@@ -245,18 +259,6 @@
   .telephone-number,
   .email-address {
     font-size: 0.9rem;
-  }
-
-  .footer-copyright {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem 0.5rem;
-  }
-
-  .footer-copyright img {
-    height: 6rem;
-    width: 11rem;
   }
 
   .footer-contact-us h4 {
@@ -311,12 +313,6 @@
     font-size: 1rem; /* Adjust font size for better readability on tablet/medium screen */
   }
 
-  .copyright-note img {
-    margin: 0 1rem; /* Add space around the image */
-    height: 35px; /* Keep the image size same as larger screens */
-    width: 35px; /* Ensure the image maintains the same size */
-  }
-
   .copyright-note a {
     display: flex; /* Keep the content in a row */
     align-items: center; /* Center the items vertically */
@@ -328,8 +324,9 @@
   .copyright-note a:hover {
     color: greenyellow; /* Maintain hover effect for the link */
   }
-  .footer_logo {
-    height: 2rem !important;
+
+  .footer_logo .footer-brand {
+    height: 56px;
   }
 }
 
@@ -377,14 +374,8 @@
 
   .footer-copyright {
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 0.5rem 0.5rem;
-  }
-
-  .footer-copyright img {
-    height: 5rem;
-    width: 9rem;
+    gap: 6px;
   }
 
   .footer-contact-us {
@@ -441,12 +432,6 @@
     font-size: 1rem;
   }
 
-  .copyright-note img {
-    margin: 0 1rem;
-    height: 35px;
-    width: 35px;
-  }
-
   .copyright-note a {
     display: flex;
     align-items: center;
@@ -459,7 +444,10 @@
     color: greenyellow;
   }
   .footer_logo {
-    margin-bottom: 2rem;
+    margin-bottom: 8px;
+  }
+  .footer_logo .footer-brand {
+    height: 50px;
   }
 }
 
@@ -506,16 +494,12 @@
 
   .footer-copyright {
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 0.5rem 0.5rem;
+    gap: 6px;
   }
 
   .footer-copyright img {
-    height: 2.5rem;
-    width: 10rem;
-    margin-bottom: -2.5rem;
-    margin-left: 4.5rem;
+    margin: 0 !important;
   }
   .copyright-ramit {
     margin-bottom: 1rem;
@@ -587,6 +571,13 @@
 
   .copyright-note a:hover {
     color: greenyellow;
+  }
+  .footer_logo {
+    margin: 0;
+  }
+  .footer_logo .footer-brand {
+    height: 44px; /* comfortable mobile height */
+    max-width: 60vw; /* prevent overflow on narrow phones */
   }
 }
 
