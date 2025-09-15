@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./Components/NavbarItems/Navbar";
 // import "leaflet/dist/leaflet.css";
 import Home from "./Routes/Home";
+import AboutUs from "./Routes/AboutUs";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutUs />} />
         {/* <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/development" element={<SoftwareDevelopment />} />

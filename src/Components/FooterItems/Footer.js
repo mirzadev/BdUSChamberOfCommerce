@@ -109,7 +109,7 @@ const Footer = () => {
       <hr />
       <div className="footer-copyright">
         <div className="footer_logo">
-          <img src={BACCLogo} alt="psptech" height="80" width="85" />
+          <img src={BACCLogo} alt="BACC logo" className="footer-brand" />
         </div>
         <div className="copyright-BACC">
           <p>Copyright @ Bangladesh Chamber of Commerce, FL, USA</p>
