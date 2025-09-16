@@ -5,7 +5,7 @@ import L from "leaflet";
 
 const MapComponent = () => {
   // Latitude and Longitude for the location
-  const location = [26.15876, -80.20389];
+  const location = [26.3616645, -80.2344257];
 
   return (
     <div style={{ height: "100vh" }}>
@@ -32,14 +32,7 @@ const MapComponent = () => {
 };
 
 export default MapComponent;
-/*
-In src/index.css or src/App.css 
-@import url('https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
 
----
-npm install react-leaflet leaflet
-
-*/
 /*
 
 // npm install react-leaflet leaflet

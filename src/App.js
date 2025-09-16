@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/NavbarItems/Navbar";
-// import "leaflet/dist/leaflet.css";
+import "leaflet/dist/leaflet.css";
 import Home from "./Routes/Home";
 import AboutUs from "./Routes/AboutUs";
+import Contact from "./Routes/ContactUs";
 
 function App() {
   return (
@@ -12,9 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
-        {/* <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/development" element={<SoftwareDevelopment />} />
+        <Route path="/contact" element={<Contact />} />
+
+        {/*<Route path="/development" element={<SoftwareDevelopment />} />
         <Route path="/appDevelopment" element={<AppDev />} />
         <Route path="/webDevelopment" element={<WebDev />} />
         <Route path="/career" element={<Career />} />
