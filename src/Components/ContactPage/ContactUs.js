@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { Link } from "react-router-dom";
 import "./ContactUsStyles.css";
-import CorporateLogo from "../../Assets/Corp_Logo/psptech_logo_small.png";
+import CorporateLogo from "../../Assets/Home/bacc_logo.png";
 import MapComponent from "./MapLocation";
-import AnimatedBackground from "../AnimatedBackground/AnimatedBackground";
+import AnimatedBackground1 from "../AnimatedBackground1/AnimatedBackground";
 // install email js --   npm install emailjs-com
-// email.js is connected using psptechnologyservice@gmail.com tamplate. Mail going to fobanac@gmail.com
+// email.js is connected using fashionrk212@gmail.com tamplate. Mail going to fobanacentral@gmail.com
 
 const ContactUs = () => {
   const [name, setName] = useState("");
@@ -41,10 +41,10 @@ const ContactUs = () => {
 
     emailjs
       .send(
-        "service_p774ll6",
-        "template_wmlimtk",
+        "service_a2wnrfo",
+        "template_sqoppcp",
         templateParams,
-        "06t5He3Ms9p98XTn7"
+        "y1NCmHhHJJPaVsbR_"
       )
       .then(
         (response) => {
@@ -68,14 +68,13 @@ const ContactUs = () => {
   return (
     <div>
       <div className="contact-us-container">
-        <AnimatedBackground />
+        <AnimatedBackground1 />
         <div className="hero-section">
           <div className="hero-overlay">
             <h1>CONTACT US</h1>
           </div>
         </div>
         <div className="contactUs_header">
-          {/* <h1>CONTACT US</h1> */}
           <img
             src={CorporateLogo}
             alt="Healthcare"
@@ -139,12 +138,12 @@ const ContactUs = () => {
             ></div>
             <h2>Our Office</h2>
             <Link
-              to="https://maps.app.goo.gl/75anvYpBD3RnEYw29"
+              to="https://maps.app.goo.gl/oaPLhEvRJJRH8x9q8"
               target="_blank"
               rel="noreferrer"
             >
-              <div>4120 NW 26th Street,</div>
-              <div>Lauderhill, FL-33313</div>
+              <div>21118 SWEETWATER LANE NORTH,</div>
+              <div>BOCA RATON, FL 33428</div>
             </Link>
           </div>
           <div className="tel-contact">
@@ -153,8 +152,8 @@ const ContactUs = () => {
               style={{ fontSize: "30px" }}
             ></div>
             <h2>Phone</h2>
-            <div className="phoneNumber">1(954) 513-5171 (Cell)</div>
-            <div className="phoneNumber">1(954) 314-7836 (Office)</div>
+            <div className="phoneNumber">1(954) 818-2970 (Cell)</div>
+            <div className="phoneNumber">1(954) 818-2970 (Office)</div>
           </div>
           <div className="email-contact">
             <div
@@ -163,7 +162,7 @@ const ContactUs = () => {
             ></div>
             <h2>Email</h2>
             <Link to="mailto:info@psptech.net" target="_blank" rel="noreferrer">
-              <p className="email-address">info@psptech.net</p>
+              <p className="email-address">BACCservice2024@gmail.com</p>
             </Link>
           </div>
         </div>

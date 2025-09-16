@@ -6,16 +6,11 @@ import StatsSection from "../PerformanceCount/StatisticSection";
 import MemberCarousel from "../OurMembers/OurMembersCarouselFunc";
 // import AnimatedBackground from "../AnimatedBackground/AnimatedBackground";
 import BACC_Logo from "../../Assets/Home/bacc_logo.png";
-import OfficeImg1 from "../../Assets/Home/OfficeImg-1.jpg";
-import OfficeImg2 from "../../Assets/Home/OfficeImg-2.jpg";
-import OfficeImg3 from "../../Assets/Home/OfficeImg-3.jpg";
-import OfficeImg4 from "../../Assets/Home/OfficeImg-4.png";
-import OfficeImg5 from "../../Assets/Home/OfficeImg-5.jpg";
-import OfficeImg6 from "../../Assets/Home/OfficeImg-6.jpg";
-import OfficeImg7 from "../../Assets/Home/OfficeImg-7.jpg";
-import OfficeImg8 from "../../Assets/Home/OfficeImg-8.jpg";
-import OfficeImg9 from "../../Assets/Home/OfficeImg-9.jpg";
-import OfficeImg10 from "../../Assets/Home/OfficeImg-10.jpg";
+import OfficeImg1 from "../../Assets/Home/HomePg-1.jpg";
+import OfficeImg2 from "../../Assets/Home/HomePg-2.jpg";
+import OfficeImg3 from "../../Assets/Home/HomePg-3.jpg";
+import OfficeImg4 from "../../Assets/Home/HomePg-4.jpg";
+import OfficeImg5 from "../../Assets/Home/HomePg-5.jpg";
 import image1 from "../../Assets/Home/economicGrowth.png";
 import image2 from "../../Assets/Home/communityBonding.png";
 import image3 from "../../Assets/Home/CulturalPride.png";
@@ -35,11 +30,6 @@ function HomeItems() {
     OfficeImg3,
     OfficeImg4,
     OfficeImg5,
-    OfficeImg6,
-    OfficeImg7,
-    OfficeImg8,
-    OfficeImg9,
-    OfficeImg10,
   ];
   const [currentImage, setCurrentImage] = useState(0);
 
