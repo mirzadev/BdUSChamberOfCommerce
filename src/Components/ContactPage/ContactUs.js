@@ -69,7 +69,7 @@ const ContactUs = () => {
     <div>
       <div className="contact-us-container">
         <AnimatedBackground1 />
-        <div className="hero-section">
+        <div className="contact-hero-section">
           <div className="hero-overlay">
             <h1>CONTACT US</h1>
           </div>

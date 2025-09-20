@@ -110,7 +110,7 @@ function About() {
     <div className="about-page" style={{ position: "relative", zIndex: 1 }}>
       {/* <AnimatedBackground /> */}
       {/* Hero Section */}
-      <div className="hero-section">
+      <div className="About-hero-section">
         <div className="hero-overlay">
           <h1>ABOUT US</h1>
         </div>
@@ -251,7 +251,7 @@ function About() {
 
             <div className="history-cta">
               <a className="history-link" href="/membership">
-                MEMBERSHIP
+                GET MEMBERSHIP
               </a>
             </div>
           </div>

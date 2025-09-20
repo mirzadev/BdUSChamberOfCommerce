@@ -4,9 +4,9 @@
 }
 
 /* Hero Section */
-.hero-section {
+.About-hero-section {
   height: 60vh;
-  background-image: url("../../Assets/About//About_Cover.png");
+  background-image: url("../../Assets/About/About_Cover.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
