@@ -1,0 +1,626 @@
+/* Container */
+.mf-container {
+  margin-top: 6rem;
+  max-width: 1100px;
+  margin: 6rem auto;
+  padding: 16px;
+  color: #0f172a;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+}
+
+/* Action bar (won't print) */
+.mf-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.mf-actions-left {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.mf-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+}
+.mf-actions-right {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons align with your .btn.outline base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  background: #fff;
+  border: 2px solid #00796b;
+  color: #00796b;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #f3fbf9;
+}
+
+/* Paper (print area) */
+.mf-paper {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.06);
+  padding: 20px;
+}
+
+/* Header */
+.mf-header {
+  display: grid;
+  grid-template-columns: 120px 1fr 120px;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 3px solid #e5e7eb;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.mf-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mf-logo img {
+  max-height: 70px;
+  max-width: 100%;
+  object-fit: contain;
+}
+.mf-logo-placeholder {
+  height: 70px;
+  width: 100%;
+  border: 1px dashed #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.mf-org {
+  text-align: center;
+}
+.mf-org-input {
+  width: 100%;
+  border: 0;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #0f172a;
+  padding: 4px 6px;
+  background: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    #16a34a 0%,
+    #ef4444 50%,
+    #16a34a 100%
+  );
+  -webkit-background-clip: text; /* Chrome/Safari/Edge */
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Chrome/Safari/Edge */
+  color: transparent; /* fallback */
+  caret-color: #0f172a; /* keep caret visible */
+}
+.mf-org-input:focus {
+  outline: 2px solid #00796b1f;
+  border-radius: 6px;
+}
+
+/* Contact lines under the org name (from the attachment) */
+.mf-contact-lines {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.35;
+}
+.mf-bottom-note {
+  border-top: 2px solid #e5e7eb; /* override any dashed style */
+  padding-top: 1rem;
+  margin-top: 2rem;
+}
+
+/* Title */
+.mf-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 16px 0;
+  color: #00796b;
+}
+
+/* Grid inputs */
+.mf-grid {
+  display: grid;
+  gap: 10px;
+}
+.mf-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+.mf-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.mf-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.mf-grid label {
+  text-align: left !important; /* kill any inherited centering */
+}
+
+.mf-grid label > span {
+  font-weight: 600;
+  color: #374151;
+  text-align: left !important; /* label text itself */
+  justify-self: start !important; /* if a grid parent is centering items */
+}
+.mf-grid input {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  text-align: left;
+}
+.mf-grid input:focus {
+  outline: 2px solid #00796b3a;
+}
+
+/* Consent */
+.mf-consent {
+  margin-top: 3rem;
+}
+.mf-checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.mf-checkbox input {
+  margin-top: 4px;
+}
+
+/* Signature row */
+.mf-signature-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+  align-items: end;
+  margin-top: 2rem;
+  padding-top: 8px;
+  border-bottom: 3px solid #e5e7eb;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.mf-date span,
+.mf-signature span {
+  font-weight: 600;
+  color: #374151;
+}
+.mf-date input,
+.mf-signature input {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+/* Dues */
+.mf-dues {
+  margin-top: 12px;
+}
+.mf-dues,
+.mf-dues * {
+  text-align: left !important;
+}
+.mf-dues h3 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  color: #00796b !important;
+  align-items: center;
+}
+.mf-paper .mf-dues > h3 {
+  text-align: center !important;
+}
+.mf-dues-grid {
+  display: grid;
+  gap: 8px;
+}
+.mf-dues-item {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: 0;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+}
+.mf-dues-item input[type="radio"] {
+  justify-self: start;
+}
+.mf-dues-label {
+  font-weight: 600;
+  color: #0f172a;
+  display: block;
+  padding-left: 2rem !important;
+}
+.mf-dues-amount {
+  color: #334155;
+  font-size: 14px;
+}
+
+/* Make sizing predictable inside the form */
+.mf-paper,
+.mf-paper * {
+  box-sizing: border-box;
+}
+
+/* 1) SINGLE-LINE LABELS: keep 1rem from right border */
+.mf-row {
+  grid-template-columns: 200px 1fr; /* label then input */
+  column-gap: 12px;
+  padding-right: 1rem; /* uniform right gap */
+}
+.mf-grid label,
+.mf-grid label > span {
+  text-align: left;
+}
+.mf-grid input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* 2) MULTI-LABEL ROWS: spacing between labels + 1rem right gap */
+.mf-2col,
+.mf-3col {
+  column-gap: 1rem; /* space between sibling labels */
+  row-gap: 12px;
+  padding-right: 1rem; /* uniform right gap to border */
+}
+
+/* Each label in multi-column rows becomes a tiny grid to avoid overlap */
+.mf-2col > label,
+.mf-3col > label {
+  display: grid;
+  grid-template-columns: 150px 1fr; /* field name + input */
+  align-items: center;
+  column-gap: 12px;
+  min-width: 0; /* allow shrink within grid track */
+}
+
+/* Ensure label text sits above input in tight spaces if needed */
+.mf-2col > label > span,
+.mf-3col > label > span {
+  display: block;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.mf-row,
+.mf-2col,
+.mf-3col,
+.mf-signature-row,
+.mf-dues {
+  padding-inline: 1rem; /* left & right padding */
+}
+
+/* Single-line rows keep label 200px + input flexible */
+.mf-row {
+  grid-template-columns: 150px 1fr;
+  column-gap: 12px;
+}
+
+.mf-3col {
+  grid-template-columns: repeat(3, 1fr) !important;
+  column-gap: 48px;
+  padding-inline: 1rem;
+}
+
+.mf-3col > label {
+  display: grid;
+  grid-template-columns: minmax(155px, 0.5fr) minmax(0, 3.5fr) !important; /* label | input */
+  align-items: center;
+  column-gap: 6px;
+  min-width: 0;
+}
+
+.mf-3col > label > span {
+  text-align: left !important;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.mf-3col input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  text-align: left;
+}
+
+/* Print rules: only print the paper; hide controls */
+@media print {
+  /* Page box: no browser margins (turn off headers/footers in dialog) */
+  @page {
+    size: Letter portrait;
+    margin: 0;
+  }
+
+  /* Reset the world */
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Show only the printable area but keep real layout (no display:block hacks) */
+  body * {
+    visibility: hidden !important;
+  }
+  .mf-print-area,
+  .mf-print-area * {
+    visibility: visible !important;
+  }
+
+  /* Make wrappers full-width so centering works predictably */
+  .mf-container,
+  .mf-print-area {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* The sheet: fixed physical width, truly centered, outline doesn't affect flow */
+  .mf-paper {
+    width: 8in !important; /* content width */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+    margin-bottom: -1px !important; /* rounding guard to avoid phantom page */
+    outline: 1px solid #e5e7eb !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Header org name: smaller + solid color for print */
+  .mf-org-input {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: #0f172a !important;
+    color: #0f172a !important;
+    font-size: 1.2rem !important;
+    line-height: 1.2 !important;
+    border: 0 !important;
+    padding: 2px 0 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+
+  /* Keep your screen grid feel; avoid giant blocks forcing a new page */
+  .mf-grid,
+  .mf-consent,
+  .mf-signature-row,
+  .mf-dues,
+  .mf-bottom-note {
+    padding-inline: 1rem !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  /* Only tiny row units should avoid splitting */
+  .mf-row,
+  .mf-2col > label,
+  .mf-3col > label,
+  .mf-dues-item {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Inputs stay readable; no micro-shrink */
+  .mf-grid input {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+
+  /* Stack City/State/Zip and Phone/Fax/Email (one field per line) for width */
+  .mf-3col {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    row-gap: 10px !important;
+    column-gap: 0 !important;
+  }
+  .mf-3col > label {
+    display: grid !important;
+    grid-template-columns: 190px 1fr !important; /* label | input */
+    column-gap: 10px !important;
+    align-items: center !important;
+    min-width: 0 !important;
+  }
+  .mf-3col input {
+    font-size: 12pt !important;
+    min-height: 28px !important;
+  }
+
+  /* Dues: centered title, left rows, no wrap on amount */
+  .mf-dues > h3 {
+    text-align: center !important;
+    color: #00796b !important;
+    -webkit-text-fill-color: #00796b !important;
+    margin-bottom: 8px !important;
+  }
+  .mf-dues .mf-dues-item {
+    display: flex !important;
+    align-items: center !important;
+    padding: 4px 6px !important; /* less padding = more line room */
+    gap: 0 !important; /* no extra column gaps */
+  }
+  .mf-dues .mf-dues-item .mf-dues-amount {
+    white-space: nowrap !important;
+  }
+
+  /* Absolutely no bottom spacing on the last element to prevent a trailing page */
+  .mf-paper > *:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+  .mf-dues .mf-dues-grid {
+    row-gap: 4px !important;
+  }
+  .mf-dues .mf-dues-label {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    padding-left: 0 !important; /* remove screen padding */
+    margin-left: 2px !important;
+    font-size: 10.5pt !important;
+  }
+  .mf-dues .mf-dues-amount {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    margin-left: 8px !important;
+    font-size: 10.5pt !important;
+  }
+  @page {
+    size: Letter portrait;
+    margin: 0;
+  }
+  /* --------------------------------------- */
+  @page {
+    size: Letter portrait;
+    margin: 0.5in;
+  }
+
+  /* Full-width wrappers so centering is predictable */
+  html,
+  body,
+  .mf-container,
+  .mf-print-area {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* The sheet: exact width for these margins (8.5in - 1in = 7.5in) */
+  .mf-paper {
+    width: 7.5in !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+
+    /* Prevent ANY tiny overflow from creating a new page */
+    overflow: hidden !important;
+
+    /* Remove layout-affecting visuals */
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+
+    /* No bottom padding/margin; guard against phantom page in Chrome/WebKit */
+    padding-bottom: 0 !important;
+    margin-bottom: -4px !important;
+
+    /* Do NOT force a break after the sheet */
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Ensure the very last block can’t push a tiny extra height */
+  .mf-paper > *:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Large sections may split; small row units should not */
+  .mf-grid,
+  .mf-consent,
+  .mf-signature-row,
+  .mf-dues,
+  .mf-bottom-note {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+  .mf-row,
+  .mf-2col > label,
+  .mf-3col > label,
+  .mf-dues-item {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
+/* Responsive */
+@media (max-width: 900px) {
+  .mf-container {
+    padding: 12px;
+  }
+  .mf-header {
+    grid-template-columns: 80px 1fr 80px;
+  }
+  .mf-logo img,
+  .mf-logo-placeholder {
+    height: 56px;
+  }
+  .mf-row {
+    grid-template-columns: 1fr;
+  }
+  .mf-2col {
+    grid-template-columns: 1fr;
+  }
+  .mf-3col {
+    grid-template-columns: 1fr;
+  }
+  .mf-signature-row {
+    grid-template-columns: 1fr;
+  }
+  .mf-2col > label,
+  .mf-3col > label {
+    grid-template-columns: 1fr; /* name above input */
+    row-gap: 6px;
+  }
+  .mf-dues-item {
+    grid-template-columns: 20px 1fr; /* amount wraps below naturally */
+    row-gap: 4px;
+  }
+  .mf-dues-amount {
+    grid-column: 2 / -1; /* amount sits under the label text */
+  }
+}
