@@ -138,9 +138,8 @@ function MembershipPage() {
       </div>
       <h1>WELCOME TO BACC MEMBERSHIP PORTAL</h1>
       <p className="membership-intro-text">
-        Join the largest network of Bangladeshi organizations in North America.
-        Explore the benefits of membership, understand the process, and learn
-        about executive committee nominations.
+        Join the largest network of Bangladeshi organizations in North
+        Americaand explore the benefits of membership.
       </p>
       <div className="summary-section">
         <img
