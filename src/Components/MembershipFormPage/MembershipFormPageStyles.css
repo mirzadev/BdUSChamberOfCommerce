@@ -102,7 +102,7 @@
   width: 100%;
   border: 0;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   font-weight: 800;
   color: #0f172a;
   padding: 4px 6px;
@@ -117,14 +117,13 @@
   background-clip: text;
   -webkit-text-fill-color: transparent; /* Chrome/Safari/Edge */
   color: transparent; /* fallback */
-  caret-color: #0f172a; /* keep caret visible */
+  caret-color: #0f172a;
 }
 .mf-org-input:focus {
   outline: 2px solid #00796b1f;
   border-radius: 6px;
 }
 
-/* Contact lines under the org name (from the attachment) */
 .mf-contact-lines {
   margin-top: 6px;
   font-size: 12px;
@@ -132,7 +131,7 @@
   line-height: 1.35;
 }
 .mf-bottom-note {
-  border-top: 2px solid #e5e7eb; /* override any dashed style */
+  border-top: 2px solid #e5e7eb;
   padding-top: 1rem;
   margin-top: 2rem;
 }
@@ -167,14 +166,14 @@
   gap: 12px;
 }
 .mf-grid label {
-  text-align: left !important; /* kill any inherited centering */
+  text-align: left !important;
 }
 
 .mf-grid label > span {
   font-weight: 600;
   color: #374151;
-  text-align: left !important; /* label text itself */
-  justify-self: start !important; /* if a grid parent is centering items */
+  text-align: left !important;
+  justify-self: start !important;
 }
 .mf-grid input {
   width: 100%;
@@ -188,7 +187,6 @@
   outline: 2px solid #00796b3a;
 }
 
-/* Consent */
 .mf-consent {
   margin-top: 3rem;
 }
@@ -201,7 +199,6 @@
   margin-top: 4px;
 }
 
-/* Signature row */
 .mf-signature-row {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -272,17 +269,15 @@
   font-size: 14px;
 }
 
-/* Make sizing predictable inside the form */
 .mf-paper,
 .mf-paper * {
   box-sizing: border-box;
 }
 
-/* 1) SINGLE-LINE LABELS: keep 1rem from right border */
 .mf-row {
-  grid-template-columns: 200px 1fr; /* label then input */
+  grid-template-columns: 200px 1fr;
   column-gap: 12px;
-  padding-right: 1rem; /* uniform right gap */
+  padding-right: 1rem;
 }
 .mf-grid label,
 .mf-grid label > span {
@@ -294,25 +289,22 @@
   min-width: 0;
 }
 
-/* 2) MULTI-LABEL ROWS: spacing between labels + 1rem right gap */
 .mf-2col,
 .mf-3col {
-  column-gap: 1rem; /* space between sibling labels */
+  column-gap: 1rem;
   row-gap: 12px;
-  padding-right: 1rem; /* uniform right gap to border */
+  padding-right: 1rem;
 }
 
-/* Each label in multi-column rows becomes a tiny grid to avoid overlap */
 .mf-2col > label,
 .mf-3col > label {
   display: grid;
-  grid-template-columns: 150px 1fr; /* field name + input */
+  grid-template-columns: 150px 1fr;
   align-items: center;
   column-gap: 12px;
-  min-width: 0; /* allow shrink within grid track */
+  min-width: 0;
 }
 
-/* Ensure label text sits above input in tight spaces if needed */
 .mf-2col > label > span,
 .mf-3col > label > span {
   display: block;
@@ -324,10 +316,9 @@
 .mf-3col,
 .mf-signature-row,
 .mf-dues {
-  padding-inline: 1rem; /* left & right padding */
+  padding-inline: 1rem;
 }
 
-/* Single-line rows keep label 200px + input flexible */
 .mf-row {
   grid-template-columns: 150px 1fr;
   column-gap: 12px;
@@ -362,13 +353,11 @@
 
 /* Print rules: only print the paper; hide controls */
 @media print {
-  /* Page box: no browser margins (turn off headers/footers in dialog) */
   @page {
     size: Letter portrait;
     margin: 0;
   }
 
-  /* Reset the world */
   html,
   body {
     margin: 0 !important;
@@ -380,7 +369,6 @@
     print-color-adjust: exact;
   }
 
-  /* Show only the printable area but keep real layout (no display:block hacks) */
   body * {
     visibility: hidden !important;
   }
@@ -389,7 +377,6 @@
     visibility: visible !important;
   }
 
-  /* Make wrappers full-width so centering works predictably */
   .mf-container,
   .mf-print-area {
     width: 100% !important;
@@ -398,13 +385,12 @@
     padding: 0 !important;
   }
 
-  /* The sheet: fixed physical width, truly centered, outline doesn't affect flow */
   .mf-paper {
     width: 8in !important; /* content width */
     margin-left: auto !important;
     margin-right: auto !important;
     margin-top: 0 !important;
-    margin-bottom: -1px !important; /* rounding guard to avoid phantom page */
+    margin-bottom: -1px !important;
     outline: 1px solid #e5e7eb !important;
     border: 0 !important;
     box-shadow: none !important;
@@ -412,13 +398,12 @@
     break-after: auto !important;
   }
 
-  /* Header org name: smaller + solid color for print */
   .mf-org-input {
     background: none !important;
     -webkit-background-clip: initial !important;
     -webkit-text-fill-color: #0f172a !important;
     color: #0f172a !important;
-    font-size: 1.2rem !important;
+    font-size: 0.9rem !important;
     line-height: 1.2 !important;
     border: 0 !important;
     padding: 2px 0 !important;
@@ -426,7 +411,6 @@
     appearance: none !important;
   }
 
-  /* Keep your screen grid feel; avoid giant blocks forcing a new page */
   .mf-grid,
   .mf-consent,
   .mf-signature-row,
@@ -437,7 +421,6 @@
     break-inside: auto !important;
   }
 
-  /* Only tiny row units should avoid splitting */
   .mf-row,
   .mf-2col > label,
   .mf-3col > label,
@@ -455,7 +438,6 @@
     appearance: none !important;
   }
 
-  /* Stack City/State/Zip and Phone/Fax/Email (one field per line) for width */
   .mf-3col {
     display: grid !important;
     grid-template-columns: 1fr !important;
@@ -464,7 +446,7 @@
   }
   .mf-3col > label {
     display: grid !important;
-    grid-template-columns: 190px 1fr !important; /* label | input */
+    grid-template-columns: 190px 1fr !important;
     column-gap: 10px !important;
     align-items: center !important;
     min-width: 0 !important;
@@ -474,7 +456,6 @@
     min-height: 28px !important;
   }
 
-  /* Dues: centered title, left rows, no wrap on amount */
   .mf-dues > h3 {
     text-align: center !important;
     color: #00796b !important;
@@ -484,14 +465,13 @@
   .mf-dues .mf-dues-item {
     display: flex !important;
     align-items: center !important;
-    padding: 4px 6px !important; /* less padding = more line room */
-    gap: 0 !important; /* no extra column gaps */
+    padding: 4px 6px !important;
+    gap: 0 !important;
   }
   .mf-dues .mf-dues-item .mf-dues-amount {
     white-space: nowrap !important;
   }
 
-  /* Absolutely no bottom spacing on the last element to prevent a trailing page */
   .mf-paper > *:last-child {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
@@ -507,7 +487,7 @@
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    padding-left: 0 !important; /* remove screen padding */
+    padding-left: 0 !important;
     margin-left: 2px !important;
     font-size: 10.5pt !important;
   }
@@ -521,106 +501,216 @@
     size: Letter portrait;
     margin: 0;
   }
-  /* --------------------------------------- */
-  @page {
-    size: Letter portrait;
-    margin: 0.5in;
-  }
-
-  /* Full-width wrappers so centering is predictable */
-  html,
-  body,
-  .mf-container,
-  .mf-print-area {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
-    max-width: none !important;
-  }
-
-  /* The sheet: exact width for these margins (8.5in - 1in = 7.5in) */
-  .mf-paper {
-    width: 7.5in !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 0 !important;
-
-    /* Prevent ANY tiny overflow from creating a new page */
-    overflow: hidden !important;
-
-    /* Remove layout-affecting visuals */
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-
-    /* No bottom padding/margin; guard against phantom page in Chrome/WebKit */
-    padding-bottom: 0 !important;
-    margin-bottom: -4px !important;
-
-    /* Do NOT force a break after the sheet */
-    page-break-after: auto !important;
-    break-after: auto !important;
-  }
-
-  /* Ensure the very last block can’t push a tiny extra height */
-  .mf-paper > *:last-child {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-    page-break-after: auto !important;
-    break-after: auto !important;
-  }
-
-  /* Large sections may split; small row units should not */
-  .mf-grid,
-  .mf-consent,
-  .mf-signature-row,
-  .mf-dues,
-  .mf-bottom-note {
-    page-break-inside: auto !important;
-    break-inside: auto !important;
-  }
-  .mf-row,
-  .mf-2col > label,
-  .mf-3col > label,
-  .mf-dues-item {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
 }
 /* Responsive */
+
 @media (max-width: 900px) {
   .mf-container {
     padding: 12px;
+    margin: 4rem auto;
   }
+
+  .mf-paper {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
   .mf-header {
-    grid-template-columns: 80px 1fr 80px;
+    grid-template-columns: 90px 1fr 90px;
+    gap: 10px;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
   }
-  .mf-logo img,
-  .mf-logo-placeholder {
-    height: 56px;
+  .mf-logo img {
+    max-height: 58px;
   }
+  .mf-org-input {
+    font-size: 1.2rem;
+  }
+
+  .mf-title {
+    font-size: 1.3rem;
+    margin: 12px 0;
+  }
+  .mf-contact-lines {
+    font-size: 11.5px;
+  }
+
   .mf-row {
     grid-template-columns: 1fr;
   }
-  .mf-2col {
-    grid-template-columns: 1fr;
-  }
+  .mf-2col,
   .mf-3col {
     grid-template-columns: 1fr;
   }
+
+  .mf-2col > label,
+  .mf-3col > label {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 6px;
+  }
+
   .mf-signature-row {
     grid-template-columns: 1fr;
   }
-  .mf-2col > label,
-  .mf-3col > label {
-    grid-template-columns: 1fr; /* name above input */
-    row-gap: 6px;
+
+  .mf-actions {
+    justify-content: center;
   }
+  .mf-actions-right {
+    gap: 8px;
+  }
+
   .mf-dues-item {
-    grid-template-columns: 20px 1fr; /* amount wraps below naturally */
+    display: grid;
+    grid-template-columns: 20px 1fr;
     row-gap: 4px;
   }
+  .mf-dues-label {
+    padding-left: 0;
+  }
   .mf-dues-amount {
-    grid-column: 2 / -1; /* amount sits under the label text */
+    grid-column: 2 / -1;
+    justify-self: start;
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 680px) {
+  .mf-container {
+    margin: 3rem auto;
+  }
+  .mf-paper {
+    padding: 14px;
+  }
+
+  .mf-header {
+    grid-template-columns: 70px 1fr 70px;
+    gap: 8px;
+  }
+  .mf-logo img {
+    max-height: 50px;
+  }
+  .mf-org-input {
+    font-size: 1.05rem;
+  }
+
+  .mf-title {
+    font-size: 1.2rem;
+  }
+
+  .mf-grid {
+    gap: 8px;
+  }
+  .mf-row,
+  .mf-2col,
+  .mf-3col,
+  .mf-signature-row,
+  .mf-dues {
+    padding-inline: 0.5rem;
+  }
+
+  .mf-grid input,
+  .mf-date input,
+  .mf-signature input {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .mf-actions-right .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .mf-paper .mf-3col {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    row-gap: 10px !important;
+    column-gap: 0 !important;
+    padding-inline: 0.5rem; /* consistent side padding */
+  }
+
+  /* inside each item: label on top, input below */
+  .mf-paper .mf-3col > label {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* stack */
+    row-gap: 6px !important;
+    align-items: start !important;
+    min-width: 0 !important;
+  }
+  .mf-paper .mf-3col input {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    font-size: 15px;
+    padding: 10px 12px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+  .mf-container {
+    margin: 2.5rem auto;
+    padding: 10px;
+  }
+  .mf-paper {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .mf-header {
+    grid-template-columns: 56px 1fr 56px;
+    gap: 6px;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  .mf-logo img {
+    max-height: 44px;
+  }
+  .mf-org-input {
+    font-size: 0.98rem;
+  }
+
+  .mf-title {
+    font-size: 1.1rem;
+  }
+
+  .mf-grid label > span {
+    font-size: 0.95rem;
+  }
+
+  .mf-grid input,
+  .mf-date input,
+  .mf-signature input {
+    font-size: 14px;
+    padding: 9px 10px;
+  }
+
+  .mf-dues h3 {
+    font-size: 1.2rem;
+  }
+  .mf-dues-amount {
+    font-size: 12.5px;
+  }
+
+  .mf-actions-right .btn {
+    width: 100%;
+  }
+
+  .mf-bottom-note {
+    margin-top: 1.25rem;
+    padding-top: 0.75rem;
+  }
+  .mf-paper .mf-3col {
+    row-gap: 8px !important;
+  }
+  .mf-paper .mf-3col input {
+    font-size: 14px;
+    padding: 9px 10px;
   }
 }
