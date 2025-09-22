@@ -10,7 +10,7 @@ function MembershipFormPage() {
 
   // Header
   const [orgName, setOrgName] = useState(
-    "BANGLADESH AMERICA CHAMBER OF COMMERCE"
+    "BANGLADESH AMERICAN CHAMBER OF COMMERCE, FLORIDA"
   );
 
   // Form fields
@@ -84,7 +84,7 @@ function MembershipFormPage() {
       signature: "",
       membershipTier: "single",
     });
-    setOrgName("BANGLADESH AMERICA CHAMBER OF COMMERCE");
+    setOrgName("BANGLADESH AMERICAN CHAMBER OF COMMERCE, FLORIDA");
   };
 
   return (
@@ -110,8 +110,8 @@ function MembershipFormPage() {
           </div>
 
           <div className="mf-org">
-            <input
-              className="mf-org-input"
+            <textarea
+              className="mf-org-input mf-org-input--area"
               value={orgName}
               onChange={(e) => setOrgName(e.target.value)}
               aria-label="Organization name"
