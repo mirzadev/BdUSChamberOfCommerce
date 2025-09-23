@@ -53,7 +53,7 @@ export const EventDropDownMenu = [
   {
     id: 2,
     title: "Member's Benefit",
-    url: "/benefit",
+    url: "/membersbenefit",
     CName: "dropdown-links",
   },
   {

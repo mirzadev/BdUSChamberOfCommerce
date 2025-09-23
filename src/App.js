@@ -7,6 +7,7 @@ import AboutUs from "./Routes/AboutUs";
 import Contact from "./Routes/ContactUs";
 import Membership from "./Routes/Membership";
 import MembershipFormPage from "./Routes/MembershipForm";
+import MembersBenefit from "./Routes/MembersBenefit";
 
 function App() {
   return (
@@ -18,8 +19,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/enrolmentforms" element={<MembershipFormPage />} />
-        {/*<Route path="/appDevelopment" element={<AppDev />} />
-        <Route path="/webDevelopment" element={<WebDev />} />
+        <Route path="/membersbenefit" element={<MembersBenefit />} />
+        {/*<Route path="/webDevelopment" element={<WebDev />} />
         <Route path="/career" element={<Career />} />
         <Route
           path="/career/frontend-developer"
