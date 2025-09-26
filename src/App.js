@@ -8,6 +8,8 @@ import Contact from "./Routes/ContactUs";
 import Membership from "./Routes/Membership";
 import MembershipFormPage from "./Routes/MembershipForm";
 import MembersBenefit from "./Routes/MembersBenefit";
+import Payments from "./Routes/Payments";
+import PaymentReceiptPage from "./Components/PaymentSuccessPage/PaymentReceiptPage";
 
 function App() {
   return (
@@ -20,8 +22,12 @@ function App() {
         <Route path="/membership" element={<Membership />} />
         <Route path="/enrolmentforms" element={<MembershipFormPage />} />
         <Route path="/membersbenefit" element={<MembersBenefit />} />
-        {/*<Route path="/webDevelopment" element={<WebDev />} />
-        <Route path="/career" element={<Career />} />
+        <Route path="/membershippayments" element={<Payments />} />
+        <Route
+          path="/membership/payment/success"
+          element={<PaymentReceiptPage />}
+        />
+        {/*<Route path="/career" element={<Career />} />
         <Route
           path="/career/frontend-developer"
           element={<FrontEndDeveloper />}

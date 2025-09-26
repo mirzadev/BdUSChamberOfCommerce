@@ -1,0 +1,201 @@
+.rcpt-wrap {
+  padding: 36px 16px;
+  background: transparent;
+}
+.rcpt-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.06);
+  padding: 18px;
+  color: #0f172a;
+}
+.rcpt-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+.rcpt-head h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #0f172a;
+}
+.rcpt-head .muted {
+  margin: 4px 0 0;
+  color: #64748b;
+}
+.rcpt-head.success .rcpt-check {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(16, 185, 129, 0.15);
+  color: #065f46;
+  font-weight: 800;
+}
+
+.rcpt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 14px;
+}
+.rcpt-label {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+.rcpt-value {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.rcpt-memo {
+  margin-top: 10px;
+}
+.rcpt-lines {
+  margin-top: 10px;
+}
+.rcpt-lines ul {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+}
+.rcpt-lines li {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px dashed #e5e7eb;
+  padding: 8px 0;
+}
+
+.rcpt-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+.rcpt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #00796b;
+  color: #fff;
+  background: #00796b;
+}
+.rcpt-btn:hover {
+  filter: brightness(0.95);
+}
+.rcpt-btn.outline {
+  background: #fff;
+  color: #00796b;
+}
+.rcpt-error {
+  color: #b91c1c;
+}
+.rcpt-brand {
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.rcpt-logo {
+  height: 56px; /* tweak 48–72px to taste */
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 6px;
+}
+
+.rcpt-brand-name {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #0f172a;
+  letter-spacing: 0.2px;
+}
+/* Center the "Payment Received" block like the logo */
+.rcpt-card .rcpt-head.success {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center horizontally */
+  gap: 12px;
+  margin: 2rem 0; /* 2rem top and bottom */
+  text-align: center; /* center the text inside */
+}
+
+/* keep the text column centered next to the check */
+.rcpt-card .rcpt-head.success > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* tighten heading, add space above the thank-you line */
+.rcpt-card .rcpt-head.success h1 {
+  margin: 0;
+}
+
+.rcpt-card .rcpt-head.success p.muted {
+  margin-top: 1rem; /* requested spacing */
+}
+.rcpt-card .rcpt-actions {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 2rem; /* +2rem top margin */
+}
+
+/* (optional) keep buttons a tidy width on wrap */
+.rcpt-card .rcpt-actions .rcpt-btn {
+  /* remove if you don't want a consistent min size */
+  min-width: 180px;
+  text-align: center;
+}
+
+@media (max-width: 680px) {
+  .rcpt-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Print: clean white receipt */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  .rcpt-card,
+  .rcpt-card * {
+    visibility: visible !important;
+  }
+  .rcpt-card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    margin: 0 auto;
+    box-shadow: none;
+    border: 0;
+    outline: 0;
+  }
+  .rcpt-actions {
+    display: none !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .rcpt-logo {
+    height: 64px;
+  }
+}

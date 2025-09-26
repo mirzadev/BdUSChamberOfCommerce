@@ -10,7 +10,12 @@
   color: var(--ink);
   background: transparent !important;
 }
-body {
+body.has-animated-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background:
     /* GREEN (slightly smaller/softer) */ radial-gradient(
       36rem 36rem at var(--gx, 12%) var(--gy, 18%),
@@ -27,7 +32,7 @@ body {
       linear-gradient(120deg, #f0f9ff 0%, #f7fee7 50%, #fff5f5 100%);
 
   animation: mb-bg-move 18s ease-in-out infinite alternate;
-  transform: translateZ(0);
+  /* transform: translateZ(0); This will disable the fixed position of the Navbar*/
 }
 
 @keyframes mb-bg-move {
