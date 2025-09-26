@@ -1,3 +1,45 @@
+/* .Membership-Container {
+  background: transparent !important;
+} */
+body.has-animated-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    /* GREEN (slightly smaller/softer) */ radial-gradient(
+      36rem 36rem at var(--gx, 12%) var(--gy, 18%),
+      rgba(16, 185, 129, 0.1),
+      transparent 55%
+    ),
+    /* RED (larger/stronger) */
+      radial-gradient(
+        58rem 58rem at calc(100% - var(--gx, 12%)) calc(100% - var(--gy, 18%)),
+        rgba(239, 68, 68, 0.2),
+        transparent 70%
+      ),
+    /* base wash */
+      linear-gradient(120deg, #f0f9ff 0%, #f7fee7 50%, #fff5f5 100%);
+
+  animation: mb-bg-move 18s ease-in-out infinite alternate;
+  /* transform: translateZ(0); This will disable the fixed position of the Navbar*/
+}
+
+@keyframes mb-bg-move {
+  0% {
+    --gx: 10%;
+    --gy: 20%;
+  }
+  50% {
+    --gx: 55%;
+    --gy: 70%;
+  }
+  100% {
+    --gx: 75%;
+    --gy: 30%;
+  }
+}
 .Membership-hero-section {
   height: 60vh;
   background-image: url("../../Assets/Membership/MembershipMainHeroImage.png");

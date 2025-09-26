@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./MembersBenefitPageStyles.css";
 import AnimatedBackground from "../AnimatedBackground/AnimatedBackground";
@@ -17,6 +17,11 @@ import IconTraining from "../../Assets/Membership-benefit/training.png";
 import IconInsights from "../../Assets/Membership-benefit/Intelligence-Insight.png";
 
 function MembersBenefitPage() {
+  // to get the background effect I am using this useEffect
+  useEffect(() => {
+    document.body.classList.add("has-animated-bg");
+    return () => document.body.classList.remove("has-animated-bg");
+  }, []);
   return (
     <div className="mb-page">
       {/* Hero */}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./MembershipPageStyles.css";
 import BACC_Logo_Membership from "../../Assets/Home/bacc_logo.png";
@@ -96,6 +96,10 @@ function Accordion({ items }) {
 
 /* --- Main page --- */
 function MembershipPage() {
+  useEffect(() => {
+    document.body.classList.add("has-animated-bg");
+    return () => document.body.classList.remove("has-animated-bg");
+  }, []);
   const [openId, setOpenId] = useState(null);
   const faqs = [
     {
