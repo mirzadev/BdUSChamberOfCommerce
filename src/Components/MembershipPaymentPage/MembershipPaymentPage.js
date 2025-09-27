@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./MembershipPaymentStyles.css";
 import { Link } from "react-router-dom";
 import BACCLogo from "../../Assets/Home/bacc_logo.png";
@@ -6,19 +6,18 @@ import PaymentHero from "../../Assets/MembershipPayment/payment.jpg";
 import LogoPayPal from "../../Assets/MembershipPayment/paypal.png";
 import LogoVenmo from "../../Assets/MembershipPayment/VenmoLogo.png";
 import LogoZelle from "../../Assets/MembershipPayment/ZellePayment.png";
+import ZelleQR from "../../Assets/MembershipPayment/QR-UnikaHolding.png";
+import QRCode from "react-qr-code";
+//  install:    npm i react-qr-code
 
 /* ---------------------------
    Configure your destinations
    --------------------------- */
-const PAYPAL_LINK = "https://www.paypal.com/paypalme/YOURHANDLE"; // TODO: replace
-const STRIPE_CHECKOUT_URL = "/checkout"; // TODO: route (or external) for cards/ACH
-const MERCHANT_SERVICE_URL = "/payment/invoice-request"; // TODO: route/form for invoices
-
-// Zelle + Venmo recipient info
+const PAYPAL_LINK = "https://www.paypal.com"; // TODO: replace
 const ZELLE_NAME = "Bangladesh American Chamber of Commerce";
-const ZELLE_EMAIL = "BACCservice2024@gmail.com"; // TODO: replace with your Zelle email/phone
-const VENMO_HANDLE = "@YourVenmoHandle"; // TODO: replace
-const VENMO_LINK = "https://venmo.com/u/YourVenmoHandle"; // optional
+const ZELLE_EMAIL = "BACCFloridaUSA@gmail.com"; // TODO: replace with your Zelle email/phone
+const VENMO_HANDLE = "@BACCFloridaUSA"; // TODO: replace
+const VENMO_LINK = "https://id.venmo.com/signin#/lgn"; // optional
 
 /* Tiny inline icons (no external deps) */
 const IconCard = () => (
@@ -41,6 +40,17 @@ function PaymentPage() {
   const [amount, setAmount] = useState("");
   const [memo, setMemo] = useState("");
   const [email, setEmail] = useState("");
+
+  const payQuickRef = useRef(null);
+  const amountInputRef = useRef(null);
+
+  const scrollToAmount = () => {
+    payQuickRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(
+      () => amountInputRef.current?.focus({ preventScroll: true }),
+      400
+    );
+  };
 
   const copyToClipboard = (text) => {
     navigator.clipboard?.writeText(text);
@@ -86,12 +96,19 @@ function PaymentPage() {
               ties.
             </p>
             <div className="mb-cta-row">
-              <Link className="mb-btn primary" to="/membership/payment#methods">
-                Pay Now
-              </Link>
-              <Link className="mb-btn outline" to="/membership/payment#options">
-                View Methods
-              </Link>
+              <button className="mb-btn primary" onClick={scrollToAmount}>
+                Enter Amount
+              </button>
+              <button
+                className="mb-btn outline"
+                onClick={() =>
+                  document
+                    .getElementById("methods")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Choose Method
+              </button>
             </div>
           </div>
         </div>
@@ -100,14 +117,13 @@ function PaymentPage() {
       <section className="pay-header">
         <div className="pay-header-inner">
           <h1>ONLINE PAYMENTS</h1>
-          <p className="pay-muted">
-            Choose any of the options below to pay membership dues or event fees
-            securely.
-          </p>
-          <div className="pay-quick">
+          <p className="pay-muted">Please enter your payment amount below…</p>
+
+          <div className="pay-quick" id="pay-quick" ref={payQuickRef}>
             <label className="pay-inline">
-              <span>Amount (USD)</span>
+              <span className="pay-label required">Amount (USD)</span>
               <input
+                ref={amountInputRef}
                 type="number"
                 min="0"
                 step="0.01"
@@ -115,8 +131,12 @@ function PaymentPage() {
                 placeholder="100.00"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
+                required
+                aria-required="true"
+                aria-label="Amount in US dollars"
               />
             </label>
+
             <label className="pay-inline">
               <span>Receipt Email (optional)</span>
               <input
@@ -126,6 +146,7 @@ function PaymentPage() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </label>
+
             <label className="pay-inline grow">
               <span>Memo (optional)</span>
               <input
@@ -140,7 +161,11 @@ function PaymentPage() {
       </section>
 
       {/* Methods */}
-      <section className="pay-section">
+      <section className="pay-section" id="methods">
+        <h1>PAYMENT METHODS</h1>
+        <p className="pay-muted">
+          Chose the payment that is appropriate for you
+        </p>
         <div className="pay-container">
           <div className="pay-grid">
             {/* PayPal */}
@@ -227,7 +252,7 @@ function PaymentPage() {
                 verification required.
               </p>
               <button
-                className="pay-btn"
+                className="pay-btn primary"
                 disabled={!validAmount}
                 onClick={async () => {
                   const n = sanitizeAmount(amount);
@@ -262,23 +287,6 @@ function PaymentPage() {
               </p>
             </article>
 
-            {/* Merchant Service (invoice / virtual terminal) */}
-            <article className="pay-method">
-              <div className="pay-method-head">
-                <IconInvoice />
-                <h3>Merchant Service</h3>
-              </div>
-              <p className="pay-text">
-                Prefer an invoice or to pay via our virtual terminal?
-              </p>
-              <a className="pay-btn outline" href={MERCHANT_SERVICE_URL}>
-                Request an Invoice
-              </a>
-              <p className="pay-hint">
-                You’ll receive a secure pay link by email.
-              </p>
-            </article>
-
             {/* Zelle */}
             <article className="pay-method">
               <div className="pay-method-head">
@@ -292,13 +300,14 @@ function PaymentPage() {
               </p>
               <div className="pay-row">
                 <button
-                  className="pay-btn"
+                  className="pay-btn primary"
                   onClick={() => copyToClipboard(ZELLE_EMAIL)}
                   title="Copy Zelle recipient"
                 >
                   Copy Zelle Info
                 </button>
-                {/* Optional: add a QR image <img className="pay-qr" src={ZelleQR} alt="Zelle QR" /> */}
+                {/* QR image  */}
+                <img className="pay-qr" src={ZelleQR} alt="Zelle QR" />
               </div>
               <p className="pay-hint">
                 Include your <em>Name</em> &amp; <em>Memo</em> in the payment
@@ -312,18 +321,21 @@ function PaymentPage() {
                 <img src={LogoVenmo} alt="Venmo" className="pay-logo" />
                 <h3>Venmo</h3>
               </div>
+
               <p className="pay-text">
                 Handle: <strong>{VENMO_HANDLE}</strong>
               </p>
+
               <div className="pay-row">
                 <a
-                  className="pay-btn"
+                  className="pay-btn primary"
                   href={VENMO_LINK}
                   target="_blank"
                   rel="noreferrer"
                 >
                   Open Venmo
                 </a>
+
                 <button
                   className="pay-btn"
                   onClick={() => copyToClipboard(VENMO_HANDLE)}
@@ -331,7 +343,13 @@ function PaymentPage() {
                 >
                   Copy Handle
                 </button>
+
+                {/* QR that opens your Venmo profile */}
+                <div className="pay-qr-box" aria-hidden>
+                  <QRCode value={VENMO_LINK} size={120} />
+                </div>
               </div>
+
               <p className="pay-hint">
                 Add your <em>Email</em> &amp; <em>Memo</em> so we can match your
                 payment.
@@ -354,7 +372,7 @@ function PaymentPage() {
               Call: +1-954-818-2970
             </a>
             <a className="mb-btn outline" href="mailto:info@busacc.org">
-              BACCservice2024@gmail.com
+              BACCFloridaUSA@gmail.com
             </a>
           </div>
         </div>

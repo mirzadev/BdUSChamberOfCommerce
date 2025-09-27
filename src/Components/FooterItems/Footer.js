@@ -93,13 +93,13 @@ const Footer = () => {
                 <p className="telephone-number">1(954) 818-2970 (Cell)</p>
               </div>
               <Link
-                to="mailto:BACCservice@gmail.com"
+                to="mailto:BACCFloridaUSA@gmail.com"
                 target="_blank"
                 rel="noreferrer"
               >
                 <div className="email">
                   <img src={Email} alt="email" className="email-image" />
-                  <p className="email-address">BACCservice2024@gmail.com</p>
+                  <p className="email-address">BACCFloridaUSA@gmail.com</p>
                 </div>
               </Link>
             </div>
