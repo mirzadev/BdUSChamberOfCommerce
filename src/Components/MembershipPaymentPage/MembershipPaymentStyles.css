@@ -77,7 +77,8 @@
   margin: 0 auto;
   padding: 8px 20px;
 }
-.pay-header h1 {
+.pay-header h1,
+.pay-section h1 {
   margin: 0 0 6px;
   font-size: 2rem;
   color: var(--teal);
@@ -98,6 +99,9 @@
   justify-content: center;
   margin: 0 auto 6px;
   max-width: 900px;
+}
+#pay-quick {
+  scroll-margin-top: 20rem;
 }
 .pay-inline {
   display: flex;
@@ -123,6 +127,12 @@
   border-radius: 10px;
   padding: 10px 12px;
   font-size: 14px;
+}
+.pay-inline .required::after {
+  content: " *";
+  color: #ef4444; /* red */
+  font-weight: 700;
+  margin-left: 0.25rem;
 }
 
 /* Methods grid */
@@ -165,6 +175,15 @@
   width: auto;
   object-fit: contain;
   display: block;
+}
+.pay-qr {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  padding: 8px;
 }
 .pay-method h3 {
   margin: 0;
@@ -264,20 +283,33 @@
   background: rgb(231, 246, 229);
   padding: 2rem 0;
 }
+.pay-method .pay-row {
+  display: flex; /* keeps your existing flex behavior */
+  justify-content: center; /* center within the card */
+  align-items: center; /* vertically align button & QR */
+  gap: 16px; /* space between button and QR */
+  margin: 12px 0 4px; /* a little breathing room */
+}
 /* Responsive */
 @media (max-width: 1000px) {
   .pay-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .pay-quick {
-    .pay-quick {
-      grid-template-columns: 1fr 1fr;
-      row-gap: 12px;
-    }
+    grid-template-columns: 1fr 1fr;
+    row-gap: 12px;
+  }
+  #pay-quick {
+    scroll-margin-top: 15rem;
   }
   .pay-inline.grow {
     grid-column: 1 / -1;
     min-width: 0;
+  }
+}
+@media (max-width: 850px) {
+  #pay-quick {
+    scroll-margin-top: 10rem; /* your smaller mobile navbar height */
   }
 }
 @media (max-width: 640px) {
@@ -287,6 +319,9 @@
   .pay-quick {
     grid-template-columns: 1fr;
     row-gap: 12px;
+  }
+  #pay-quick {
+    scroll-margin-top: 7rem;
   }
   .pay-header h1 {
     font-size: 1.7rem;
