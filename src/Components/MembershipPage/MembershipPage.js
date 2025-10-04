@@ -323,13 +323,13 @@ function MembershipPage() {
             It takes about 5 minutes to complete the form and submit payment.
           </p>
           <div className="cta-row">
-            <a className="btn outline" href="/membership/enroll">
+            <a className="btn outline" href="/enrolmentforms">
               Start Enrollment
             </a>
-            <a className="btn outline" href="/membership/benefits">
+            <a className="btn outline" href="/membersbenefit">
               View Full Benefits
             </a>
-            <a className="btn outline" href="/membership/payment">
+            <a className="btn outline" href="/payments">
               Go to Payment
             </a>
           </div>

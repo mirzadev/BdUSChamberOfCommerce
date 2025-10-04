@@ -10,6 +10,8 @@ import MembershipFormPage from "./Routes/MembershipForm";
 import MembersBenefit from "./Routes/MembersBenefit";
 import Payments from "./Routes/Payments";
 import PaymentReceiptPage from "./Components/PaymentSuccessPage/PaymentReceiptPage";
+import TradeFeature from "./Routes/TradeMission";
+import TradeMissionForm from "./Routes/TradeMissionForm";
 
 function App() {
   return (
@@ -22,17 +24,14 @@ function App() {
         <Route path="/membership" element={<Membership />} />
         <Route path="/enrolmentforms" element={<MembershipFormPage />} />
         <Route path="/membersbenefit" element={<MembersBenefit />} />
-        <Route path="/membershippayments" element={<Payments />} />
+        <Route path="/payments" element={<Payments />} />
         <Route
           path="/membership/payment/success"
           element={<PaymentReceiptPage />}
         />
-        {/*<Route path="/career" element={<Career />} />
-        <Route
-          path="/career/frontend-developer"
-          element={<FrontEndDeveloper />}
-        />
-        <Route path="/apply/job" element={<JobApply />} />
+        <Route path="/trade" element={<TradeFeature />} />
+        <Route path="/tradeenrollment" element={<TradeMissionForm />} />
+        {/* <Route path="/apply/job" element={<JobApply />} />
         <Route path="/job/:jobId" element={<FrontEndDeveloper />} />
         <Route path="/apply/:jobId" element={<JobApply />} /> */}
       </Routes>

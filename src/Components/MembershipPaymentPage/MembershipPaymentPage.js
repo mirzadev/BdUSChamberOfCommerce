@@ -362,7 +362,7 @@ function PaymentPage() {
       <section className="payment-section contact">
         <div className="mb-container contact-inner">
           <div>
-            <h3 className="mb-h3">Questions about the right tier?</h3>
+            <h3 className="mb-h3">Questions about the Payment ?</h3>
             <p className="mb-muted">
               We’re happy to help you decide and make introductions.
             </p>

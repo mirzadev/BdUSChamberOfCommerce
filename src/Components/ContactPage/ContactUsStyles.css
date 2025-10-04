@@ -1,3 +1,45 @@
+body.has-animated-bg {
+  position: relative;
+}
+body.has-animated-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* was -1; keep it above the white page paint */
+  pointer-events: none;
+  background: radial-gradient(
+      36rem 36rem at var(--gx, 12%) var(--gy, 18%),
+      rgba(16, 185, 129, 0.1),
+      transparent 55%
+    ),
+    radial-gradient(
+      58rem 58rem at calc(100% - var(--gx, 12%)) calc(100% - var(--gy, 18%)),
+      rgba(239, 68, 68, 0.2),
+      transparent 70%
+    ),
+    linear-gradient(120deg, #f0f9ff 0%, #f7fee7 50%, #fff5f5 100%);
+  animation: mb-bg-move 18s ease-in-out infinite alternate;
+}
+#root,
+.contact-us-container {
+  position: relative;
+  z-index: 1;
+  background: transparent; /* keep it see-through so the gradient shows */
+}
+@keyframes mb-bg-move {
+  0% {
+    --gx: 12%;
+    --gy: 18%;
+  }
+  50% {
+    --gx: 30%;
+    --gy: 40%;
+  }
+  100% {
+    --gx: 15%;
+    --gy: 75%;
+  }
+}
 .contact-us-container {
   /* max-width: 700px; */
   justify-content: center;
