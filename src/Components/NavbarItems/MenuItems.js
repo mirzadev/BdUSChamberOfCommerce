@@ -59,7 +59,7 @@ export const EventDropDownMenu = [
   {
     id: 3,
     title: "Payments",
-    url: "/membershippayments",
+    url: "/payments",
     CName: "dropdown-links",
   },
 ];
@@ -73,8 +73,8 @@ export const EventDropDownMenu1 = [
   },
   {
     id: 2,
-    title: "Trade Payments",
-    url: "/tradepayments",
+    title: "Payments",
+    url: "/payments",
     CName: "dropdown-links",
   },
 ];

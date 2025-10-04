@@ -1,0 +1,456 @@
+/* ===========================
+   Trade Mission Form (tmf)
+   =========================== */
+
+/* Container */
+.tmf-container {
+  margin: 6rem auto;
+  max-width: 1100px;
+  padding: 16px;
+  color: #0f172a;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+}
+
+/* Top action buttons (won’t print) */
+/* You used className="tmf-actions" in JSX; keep both for safety */
+.tmf-actions,
+.tmf-actionsbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.tmf-actions .btn,
+.tmf-actionsbar .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  background: #fff;
+  border: 2px solid #00796b;
+  color: #00796b;
+  text-decoration: none;
+  cursor: pointer;
+}
+.tmf-actions .btn:hover,
+.tmf-actionsbar .btn:hover {
+  background: #f3fbf9;
+}
+.tmf-actions-right {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+/* Paper (print area) */
+.tmf-paper {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.06);
+  padding: 20px;
+}
+
+/* Make sizing predictable; prevents overflow + overlap */
+.tmf-paper,
+.tmf-paper * {
+  box-sizing: border-box;
+}
+
+/* Header */
+.tmf-header {
+  display: grid;
+  grid-template-columns: 120px 1fr 120px;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 3px solid #e5e7eb;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.tmf-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tmf-logo img {
+  max-height: 70px;
+  max-width: 100%;
+  object-fit: contain;
+}
+.tmf-org {
+  text-align: center;
+}
+.tmf-org-input {
+  width: 100%;
+  border: 0;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  padding: 4px 6px;
+  background: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    #16a34a 0%,
+    #ef4444 50%,
+    #16a34a 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* fallback */
+  caret-color: #0f172a;
+}
+.tmf-org-input:focus {
+  outline: 2px solid #00796b1f;
+  border-radius: 6px;
+}
+
+/* Title */
+.tmf-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 16px 0;
+  color: #00796b;
+}
+
+/* Form Grid (labels + inputs) */
+.tmf-grid {
+  display: grid;
+  gap: 12px; /* consistent vertical rhythm */
+  padding-inline: 0.75rem; /* equal left/right breathing room inside paper */
+}
+
+/* Single-row pair: label left, input right */
+.tmf-row {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr); /* minmax(0,1fr) lets inputs shrink without overflow */
+  gap: 12px;
+  align-items: center;
+}
+
+/* Two-column block: City | State, Phone | Email, etc. */
+.tmf-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Inside each 2-col label, align caption and input side-by-side like rows */
+.tmf-2col > label {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr); /* same trick to avoid overlap */
+  align-items: center;
+  gap: 10px;
+  min-width: 0; /* allow shrink */
+}
+
+/* Label text */
+.tmf-grid label {
+  text-align: left !important;
+}
+.tmf-grid label > span {
+  font-weight: 600;
+  color: #374151;
+  text-align: left !important;
+  justify-self: start !important;
+  white-space: normal;
+  overflow-wrap: anywhere; /* long labels won’t collide with inputs */
+}
+
+/* Inputs + textareas */
+.tmf-grid input,
+.tmf-grid textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0; /* the key to prevent overflow/overlap */
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  text-align: left;
+}
+.tmf-grid textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.tmf-grid input:focus,
+.tmf-grid textarea:focus {
+  outline: 2px solid #00796b3a;
+}
+
+/* Required star helper (if you want to use a span instead of inline style) */
+.tmf-required {
+  color: #ef4444;
+  margin-left: 4px;
+  font-weight: 700;
+}
+
+/* Consent + Signature (you referenced mf- classes; support both) */
+.mf-consent,
+.tmf-consent {
+  margin-top: 1.5rem;
+  padding-inline: 0.75rem;
+}
+.mf-checkbox,
+.tmf-checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.mf-checkbox input,
+.tmf-checkbox input {
+  margin-top: 4px;
+}
+
+/* Signature row (you used tmf-signature-row, mf-date, tmf-signature) */
+.tmf-signature-row {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 12px;
+  align-items: end;
+  margin-top: 2rem;
+  padding-top: 8px;
+  border-bottom: 3px solid #e5e7eb;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  padding-inline: 0.75rem;
+}
+.mf-date span,
+.tmf-signature span {
+  font-weight: 600;
+  color: #374151;
+}
+.mf-date input,
+.tmf-signature input {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+/* Footer contact lines (optional) */
+.tmf-contact-lines {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.35;
+  padding-inline: 0.75rem;
+}
+.tmf-bottom-note {
+  border-top: 2px solid #e5e7eb;
+  padding-top: 1rem;
+  margin-top: 2rem;
+}
+
+/* Print rules: only print the paper; hide controls */
+@media print {
+  @page {
+    size: Letter portrait;
+    margin: 0;
+  }
+
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+  .tmf-print-area,
+  .tmf-print-area * {
+    visibility: visible !important;
+  }
+
+  .tmf-container,
+  .tmf-print-area {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .tmf-paper {
+    width: 8in !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+    margin-bottom: -1px !important;
+    outline: 1px solid #e5e7eb !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  .tmf-org-input {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: #0f172a !important;
+    color: #0f172a !important;
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+    border: 0 !important;
+    padding: 2px 0 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+
+  .tmf-grid,
+  .tmf-bottom-note {
+    padding-inline: 1rem !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  .tmf-row,
+  .tmf-2col > label {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .tmf-grid input,
+  .tmf-grid textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+  .tmf-consent {
+    break-before: page; /* modern */
+    page-break-before: always; /* legacy fallback */
+    margin-top: 2rem !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .tmf-container {
+    padding: 12px;
+    margin: 4rem auto;
+  }
+
+  .tmf-paper {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .tmf-header {
+    grid-template-columns: 80px 1fr 80px;
+    gap: 10px;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .tmf-logo img {
+    max-height: 50px;
+  }
+  .tmf-org-input {
+    font-size: 1.3rem;
+  }
+
+  .tmf-title {
+    font-size: 1.3rem;
+    margin: 12px 0;
+  }
+
+  /* Stack rows on small screens */
+  .tmf-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Two-column group collapses; label text above input */
+  .tmf-2col {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+  .tmf-2col > label {
+    grid-template-columns: 1fr; /* stack inside each item */
+    align-items: start;
+  }
+
+  .tmf-actions,
+  .tmf-actionsbar {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 680px) {
+  .tmf-container {
+    margin: 3rem auto;
+  }
+  .tmf-paper {
+    padding: 14px;
+  }
+
+  .tmf-header {
+    grid-template-columns: 70px 1fr 70px;
+    gap: 8px;
+  }
+  .tmf-logo img {
+    max-height: 44px;
+  }
+  .tmf-org-input {
+    font-size: 1.05rem;
+  }
+
+  .tmf-title {
+    font-size: 1.2rem;
+  }
+
+  .tmf-grid {
+    gap: 10px;
+  }
+  .tmf-actions-right {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .tmf-container {
+    margin: 2.5rem auto;
+    padding: 10px;
+  }
+  .tmf-paper {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .tmf-header {
+    grid-template-columns: 56px 1fr 56px;
+    gap: 6px;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  .tmf-logo img {
+    max-height: 44px;
+  }
+  .tmf-org-input {
+    font-size: 0.95rem;
+  }
+
+  .tmf-title {
+    font-size: 1.1rem;
+  }
+
+  .tmf-grid label > span {
+    font-size: 0.95rem;
+  }
+  .tmf-grid input,
+  .tmf-grid textarea {
+    font-size: 14px;
+    padding: 9px 10px;
+  }
+}

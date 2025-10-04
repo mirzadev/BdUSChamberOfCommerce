@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./ContactUsStyles.css";
 import CorporateLogo from "../../Assets/Home/bacc_logo.png";
 import MapComponent from "./MapLocation";
-import AnimatedBackground1 from "../AnimatedBackground1/AnimatedBackground";
+// import AnimatedBackground1 from "../AnimatedBackground1/AnimatedBackground";
 // install email js --   npm install emailjs-com
 // email.js is connected using fashionrk212@gmail.com tamplate. Mail going to fobanacentral@gmail.com
 
@@ -23,6 +23,12 @@ const ContactUs = () => {
       return () => clearTimeout(timer); // Cleanup on unmount
     }
   }, [status]);
+
+  // To get animated Background
+  useEffect(() => {
+    document.body.classList.add("has-animated-bg");
+    return () => document.body.classList.remove("has-animated-bg");
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -68,7 +74,7 @@ const ContactUs = () => {
   return (
     <div>
       <div className="contact-us-container">
-        <AnimatedBackground1 />
+        {/* <AnimatedBackground1 /> */}
         <div className="contact-hero-section">
           <div className="hero-overlay">
             <h1>CONTACT US</h1>

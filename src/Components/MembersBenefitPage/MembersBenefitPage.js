@@ -51,7 +51,6 @@ function MembersBenefitPage() {
           </div>
         </div>
       </section>
-      {/* <AnimatedBackground /> */}
       {/* Why join */}
       <section className="mb-section" aria-labelledby="why-join">
         <div className="mb-container">
