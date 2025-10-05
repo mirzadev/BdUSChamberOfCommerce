@@ -12,6 +12,7 @@ import Payments from "./Routes/Payments";
 import PaymentReceiptPage from "./Components/PaymentSuccessPage/PaymentReceiptPage";
 import TradeFeature from "./Routes/TradeMission";
 import TradeMissionForm from "./Routes/TradeMissionForm";
+import EventGallery from "./Routes/EventGallery";
 
 function App() {
   return (
@@ -31,8 +32,8 @@ function App() {
         />
         <Route path="/trade" element={<TradeFeature />} />
         <Route path="/tradeenrollment" element={<TradeMissionForm />} />
-        {/* <Route path="/apply/job" element={<JobApply />} />
-        <Route path="/job/:jobId" element={<FrontEndDeveloper />} />
+        <Route path="/events" element={<EventGallery />} />
+        {/*<Route path="/job/:jobId" element={<FrontEndDeveloper />} />
         <Route path="/apply/:jobId" element={<JobApply />} /> */}
       </Routes>
     </div>
