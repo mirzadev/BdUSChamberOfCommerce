@@ -1,0 +1,157 @@
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.page-container h1 {
+  font-size: 2.5rem;
+  font-family: "Lucida Sans";
+  color: rgb(72, 72, 200);
+}
+.page-container p {
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  color: #333;
+}
+
+.page-overview-cart {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+  row-gap: 24px;
+  justify-items: stretch; /* make items fill their grid area */
+  align-items: stretch;
+  margin-top: 3rem;
+}
+/* Prevent children from forcing wider columns */
+.page-overview-cart > * {
+  min-width: 0;
+}
+.PhotoGalleryDataCart h2 {
+  text-align: center;
+}
+
+.PhotoGalleryDataCart p {
+  text-align: justify;
+}
+
+.PhotoGalleryDataCart {
+  width: 100%;
+  text-align: start;
+  padding: 1rem;
+  box-shadow: 0 5px 25px 2px rgba(0, 0, 0, 0.19);
+  border-radius: 7px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.PhotoGalleryDataCart-image {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* keep cards uniform height; remove if not desired */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.PhotoGalleryDataCart-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* cover keeps focus; use 'contain' if you dislike cropping */
+  transition: transform 0.3s ease;
+}
+
+.PhotoGalleryDataCart-image:hover img {
+  transform: scale(1.1);
+}
+.PhotoGalleryDataCart p {
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  padding: 0.7rem 0 0.2rem 0;
+}
+
+.event-button {
+  background: rgb(84, 156, 239);
+  width: 60%;
+  padding: 1rem;
+  color: whitesmoke;
+  border-radius: 0.5rem;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 2rem auto;
+  border: solid #99c3dd;
+  display: block;
+  text-align: center;
+}
+.no-underline {
+  text-decoration: none;
+}
+.event-button:hover {
+  background: rgb(87, 133, 238);
+  transform: scale(1.1);
+  cursor: pointer;
+  color: whitesmoke;
+  transition: 0.3s ease-in-out;
+}
+
+.text-container {
+  white-space: pre-line; /* Ensures new lines are rendered */
+}
+.bold-navy {
+  font-weight: bold;
+  color: navy;
+}
+
+.text-line {
+  line-height: 1.3;
+  margin-bottom: 10px; /* Adds spacing between each line */
+}
+
+@media screen and (max-width: 850px) {
+  .page-container {
+    margin: 1rem 0;
+    padding-right: 2rem;
+  }
+
+  .page-container h1 {
+    font-size: 1.5rem;
+  }
+  .page-container p {
+    font-size: 1.2rem;
+  }
+
+  .page-overview-cart {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    padding-right: 1rem;
+    width: 100%;
+  }
+
+  .page-overview-cart h2 {
+    font-size: 1.3rem;
+  }
+
+  .PhotoGalleryDataCart {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .PhotoGalleryDataCart p {
+    font-size: 1rem;
+    padding: 0 0 0.2rem 0;
+  }
+  .PhotoGalleryDataCart-image {
+    height: auto;
+    padding-right: 0.2rem;
+    margin-top: 0.2rem;
+  }
+
+  .page-overview p {
+    font-size: 1rem;
+  }
+
+  .event-button {
+    font-size: 1rem;
+  }
+}
